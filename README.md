@@ -42,13 +42,13 @@
 
     ```pg_hba.conf```
     ```sh
-    host    replication     repuser         10.0.3.201/24           md5
+    host    replication     repuser1        10.0.3.201/24           md5
     host    replication     repuser2        10.0.3.202/24           md5
     ```
 
     ```postgresql.conf```
     ```sh
-    archive_mode = on				# Enable Archive Mode
+    archive_mode = on   # Enable Archive Mode
     archive_command = '/bin/date'	# Set archiving behavior
     # The sum of the number of concurrent connections from the slave to the host
     max_wal_senders = 10			
@@ -78,7 +78,7 @@
     pg_basebackup -R -D /var/lib/postgresql/repl -Fp -Xs -v -P -h 10.0.3.200 -p 5432 -U repuser2
     ```
 
-5. Reconfig docker volumes slave
+5. Reconfig docker volumes container slave
 
     Slave 1
     ```
