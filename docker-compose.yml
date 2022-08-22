@@ -29,10 +29,10 @@ services:
       - 5432
     volumes:
       # Setup replica "pg_basebackup -R -D /var/lib/postgresql/repl -Fp -Xs -v -P -h 10.0.3.200 -p 5432 -U repuser"
-      # - ./data/slave1:/var/lib/postgresql/data
-      # - ./data/repl1:/var/lib/postgresql/repl
+      - ./data/slave1:/var/lib/postgresql/data
+      - ./data/repl1:/var/lib/postgresql/repl
       # After Setup switch dir
-      - ./data/repl1:/var/lib/postgresql/data
+      # - ./data/repl1:/var/lib/postgresql/data
     depends_on:
       - database01
     networks:
@@ -51,10 +51,10 @@ services:
       - 5432
     volumes:
       # Setup replica "pg_basebackup -R -D /var/lib/postgresql/repl -Fp -Xs -v -P -h 10.0.3.200 -p 5432 -U repuser"
-      # - ./data/slave2:/var/lib/postgresql/data
-      # - ./data/repl2:/var/lib/postgresql/repl
+      - ./data/slave2:/var/lib/postgresql/data
+      - ./data/repl2:/var/lib/postgresql/repl
       # After Setup switch dir
-      - ./data/repl2:/var/lib/postgresql/data
+      # - ./data/repl2:/var/lib/postgresql/data
     depends_on:
       - database01
     networks:
